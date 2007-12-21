@@ -11,6 +11,7 @@ Source:         http://www.cpan.org/modules/by-module/Scalar/%{module}-%{version
 BuildRequires:  perl(Class::InsideOut)
 BuildRequires:  perl(Exporter::Lite)
 BuildArch:      noarch
+BuildRoot:	    %{_tmppath}/%{name}-%{version}
 
 %description
 This module exports two functions, defer and lazy, for constructing values that
