@@ -1,7 +1,7 @@
 %define module   Scalar-Defer
 
 Name:		perl-%{module}
-Version:    0.16
+Version:    0.18
 Release:    %mkrel 1
 License:	GPL or Artistic
 Group:		Development/Perl
