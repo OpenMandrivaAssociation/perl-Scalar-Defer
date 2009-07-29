@@ -1,17 +1,20 @@
-%define module   Scalar-Defer
+%define upstream_name    Scalar-Defer
+%define upstream_version 0.20
 
-Name:		perl-%{module}
-Version:    0.20
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
 Release:    %mkrel 1
-License:	GPL or Artistic
-Group:		Development/Perl
+
 Summary:    Lazy evaluation in Perl
-Url:		    http://search.cpan.org/dist/%{module}
-Source:         http://www.cpan.org/modules/by-module/Scalar/%{module}-%{version}.tar.gz
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}
+Source0:    http://www.cpan.org/modules/by-module/Scalar/%{upstream_name}-%{upstream_version}.tar.gz
+
 BuildRequires:  perl(Class::InsideOut)
 BuildRequires:  perl(Exporter::Lite)
 BuildArch:      noarch
-BuildRoot:	    %{_tmppath}/%{name}-%{version}
+BuildRoot:	    %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 This module exports two functions, defer and lazy, for constructing values that
@@ -19,7 +22,7 @@ are evaluated on demand. It also exports a force function to force evaluation
 of a deferred value.
 
 %prep
-%setup -q -n %{module}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL -n INSTALLDIRS=vendor
@@ -40,4 +43,3 @@ rm -rf %{buildroot}
 %doc Changes README
 %{_mandir}/man3/*
 %{perl_vendorlib}/Scalar
-
