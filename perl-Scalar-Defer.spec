@@ -1,15 +1,13 @@
 %define upstream_name    Scalar-Defer
-%define upstream_version 0.23
-
 Name:		perl-%{upstream_name}
-Version:	%perl_convert_version %{upstream_version}
-Release:	4
+Version:	0.23
+Release:	5
 
 Summary:	Lazy evaluation in Perl
 License:	GPL+ or Artistic
 Group:		Development/Perl
-Url:		https://search.cpan.org/dist/%{upstream_name}
-Source0:	http://www.cpan.org/modules/by-module/Scalar/%{upstream_name}-%{upstream_version}.tar.gz
+Url:		https://metacpan.org/dist/%{upstream_name}
+Source0:	http://www.cpan.org/modules/by-module/Scalar/%{upstream_name}-%{version}.tar.gz
 
 BuildRequires:	make
 BuildRequires:	perl-devel
@@ -23,7 +21,7 @@ are evaluated on demand. It also exports a force function to force evaluation
 of a deferred value.
 
 %prep
-%setup -q -n %{upstream_name}-%{upstream_version}
+%setup -q -n %{upstream_name}-%{version}
 
 %build
 perl Makefile.PL -n INSTALLDIRS=vendor
@@ -55,9 +53,7 @@ make test
 
 * Wed Jul 29 2009 Jérôme Quelin <jquelin@mandriva.org> 0.200.0-1mdv2010.0
 + Revision: 404360
-- rebuild using %%perl_convert_version
-
-* Thu Feb 05 2009 Guillaume Rousse <guillomovitch@mandriva.org> 0.20-1mdv2009.1
+- rebuild using %0.23 Thu Feb 05 2009 Guillaume Rousse <guillomovitch@mandriva.org> 0.20-1mdv2009.1
 + Revision: 337803
 - update to new version 0.20
 
